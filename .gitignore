@@ -1,0 +1,6 @@
+# Bazel build and output directories
+bazel-bin/
+bazel-out/
+bazel-testlogs/
+bazel-trimmed_match/
+module.bazel.lock
