@@ -11,7 +11,8 @@ py_library(
     srcs = [
         "estimator.py",
     ],
-    data = ["//trimmed_match/core/python:estimator_ext.so"],
+    # data = ["//trimmed_match/core/python:estimator_ext.so"],
+    data = ["//trimmed_match/core/python:estimator_ext.pyd"],
     srcs_version = "PY3",
     visibility = ["//visibility:public"],
 )
