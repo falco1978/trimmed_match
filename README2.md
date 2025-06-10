@@ -8,3 +8,5 @@ bazel clean --expunge
 
 
 C:\Users\User\_bazel_User\install\
+
+bazel build //trimmed_match/...
