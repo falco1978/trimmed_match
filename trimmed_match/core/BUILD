@@ -11,7 +11,7 @@ cc_library(
     deps = [
         ":geox_data_util",
         ":math_util",
-        "@com_google_absl//absl/types:optional",
+        "@abseil-cpp//absl/types:optional",
         "@glog",
     ],
 )
@@ -42,7 +42,7 @@ cc_test(
     # }),
     deps = [
         ":estimator",
-        "@com_google_googletest//:gtest_main",
+        "@googletest//:gtest_main",
     ],
 )
 
@@ -55,7 +55,7 @@ cc_test(
     # }),
     deps = [
         ":geox_data_util",
-        "@com_google_googletest//:gtest_main",
+        "@googletest//:gtest_main",
     ],
 )
 
@@ -68,6 +68,6 @@ cc_test(
     # }),
     deps = [
         ":math_util",
-        "@com_google_googletest//:gtest_main",
+        "@googletest//:gtest_main",
     ],
 )
