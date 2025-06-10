@@ -36,7 +36,10 @@ cc_library(
 cc_test(
     name = "estimator_test",
     srcs = ["estimator_test.cc"],
-    copts = ["-Wno-unused-variable"],
+    # copts = select({
+    # "@bazel_tools//tools/cpp:windows": [],
+    # "//conditions:default": ["-Wno-sign-compare"],
+    # }),
     deps = [
         ":estimator",
         "@com_google_googletest//:gtest_main",
@@ -46,7 +49,10 @@ cc_test(
 cc_test(
     name = "geox_data_util_test",
     srcs = ["geox_data_util_test.cc"],
-    copts = ["-Wno-unused-variable"],
+    # copts = select({
+    # "@bazel_tools//tools/cpp:windows": [],
+    # "//conditions:default": ["-Wno-sign-compare"],
+    # }),
     deps = [
         ":geox_data_util",
         "@com_google_googletest//:gtest_main",
@@ -56,7 +62,10 @@ cc_test(
 cc_test(
     name = "math_util_test",
     srcs = ["math_util_test.cc"],
-    copts = ["-Wno-unused-variable"],
+    # copts = select({
+    # "@bazel_tools//tools/cpp:windows": [],
+    # "//conditions:default": ["-Wno-sign-compare"],
+    # }),
     deps = [
         ":math_util",
         "@com_google_googletest//:gtest_main",
