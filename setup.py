@@ -60,15 +60,15 @@ class BuildBazelExtension(build_ext.build_ext):
         build_ext.build_ext.run(self)
 
     def bazel_build(self, ext):
-        with open('WORKSPACE', 'r') as f:
-            workspace_contents = f.read()
+        # with open('WORKSPACE', 'r') as f:
+        #     workspace_contents = f.read()
 
-        with open('WORKSPACE', 'w') as f:
-            f.write(
-                WORKSPACE_PYTHON_HEADERS_PATTERN.sub(
-                    sysconfig.get_path('include').replace(
-                        os.path.sep, posixpath.sep),
-                    workspace_contents))
+        # with open('WORKSPACE', 'w') as f:
+        #     f.write(
+        #         WORKSPACE_PYTHON_HEADERS_PATTERN.sub(
+        #             sysconfig.get_path('include').replace(
+        #                 os.path.sep, posixpath.sep),
+        #             workspace_contents))
 
         if not os.path.exists(self.build_temp):
             os.makedirs(self.build_temp)
@@ -78,7 +78,9 @@ class BuildBazelExtension(build_ext.build_ext):
         bazel_argv = [
             'bazel', 'build', ext.bazel_target + shared_lib_suffix,
             '--symlink_prefix=' + os.path.join(self.build_temp, 'bazel-'),
-            '--compilation_mode=' + ('dbg' if self.debug else 'opt')
+            '--compilation_mode=' + ('dbg' if self.debug else 'opt'),
+             # Set Python include path directly via command line
+            f'--action_env=PYTHON_INCLUDE_PATH={sysconfig.get_path("include")}',
         ]
 
         if IS_WINDOWS:
