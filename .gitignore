@@ -4,3 +4,7 @@ bazel-out/
 bazel-testlogs/
 bazel-trimmed_match/
 module.bazel.lock
+build/
+trimmed_match.egg-info/
+# Python cache files
+*.pyc
